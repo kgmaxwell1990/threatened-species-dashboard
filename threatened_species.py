@@ -29,7 +29,8 @@ def endangered_species():
     # A constant that defines the record fields that we wish to retrieve.
     FIELDS = {
         '_id': False, 
-        'IUCN Category': True, 
+        'IUCN Category': True,
+        'IUCN': True,
         'Species': True,
         'Country': True, 
         'Value': True
