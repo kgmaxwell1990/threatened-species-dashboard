@@ -19,7 +19,7 @@ def index():
     return render_template("index.html")
  
  
-@app.route("/endangeredS_species/species")
+@app.route("/endangeredSpecies/species")
 def endangered_species():
     """
     A Flask view to serve the project data from
@@ -42,9 +42,9 @@ def endangered_species():
         collection = conn[DBS_NAME][COLLECTION_NAME]
         # Retrieve a result set only with the fields defined in FIELDS
         # and limit the the results to 55000
-        data = collection.find(projection=FIELDS, limit=55000)
+        projects = collection.find(projection=FIELDS, limit=55000)
         # Convert projects to a list in a JSON object and return the JSON data
-        return json.dumps(list(data))
+        return json.dumps(list(projects))
  
  
 if __name__ == "__main__":
