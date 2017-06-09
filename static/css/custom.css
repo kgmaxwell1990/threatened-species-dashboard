@@ -1,22 +1,32 @@
+#threatened-animals {
+    background-image: href="{{ url_for ('static', filename='images/lynx.jpg')}}";
+}
 
+.chart-wrapper{
+    /*margin: 5px;*/
+}
 
-#number-projects-nd {
+.chart-title {
+    text-align: center;
+}
+
+/*#number-projects-nd {
    font-size: 60px;
 }
  
 #total-donations-nd {
    font-size: 60px;
-}
+}*/
  
  
  
  
-.dc-chart g.row text {
+/*.dc-chart g.row text {
    fill: black;
    font-size: 12px;
-}
+}*/
  
-#total-projects {
+/*#total-projects {
    background: #33CC99;
    width: 200px;
    position: relative;
@@ -56,4 +66,4 @@
    padding-top: 4px;
    padding-bottom: 0px;
  
-}
+}*/

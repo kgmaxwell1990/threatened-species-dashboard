@@ -9,7 +9,6 @@
     filename='lib/css/keen-dashboards.css')}}">
   <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/dc.css')}}">
   <link rel="stylesheet" href="{{ url_for ('static', filename='css/custom.css')}}">
-  <link rel="stylesheet" href="{{ url_for ('static', filename='css/style.css')}}">
 </head>
 
 <body class="application">
@@ -24,66 +23,63 @@
   </div>
   <!-- Navbar -->
 
+  <div class="col-sm-10 col-sm-offset-1 chart-wrapper info">
+    <div class="chart-title">
+      Information
+    </div>
+    <div class="chart-info">
+      <p>info info info</p>
+    </div>
+  </div>
 
 
-          <!-- Species Pie Chart -->
-          <div class="col-sm-3 col-sm-offset-1">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                Threatened Animals
-              </div>
-              <div class="chart-stage">
-                <div id="species-pie-chart"></div>
-              </div>
-            </div>
-          </div>
-          <!-- Species Pie Chart -->
 
-          <!-- Categories Pie Chart -->
-          <div class="col-sm-3">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                Categories
-              </div>
-              <div class="chart-stage">
-                <div id="categories-pie-chart"></div>
-              </div>
-            </div>
-          </div>
-          <!-- Categories Pie Chart -->
+  <!-- Species Pie Chart -->
+  <div class="col-sm-4 chart-wrapper" id="threatened-animals">
+      <div class="chart-title">
+        Threatened Animals
+      </div>
+      <div class="chart-stage">
+        <div id="species-pie-chart"></div>
+      </div>
+  </div>
+  <!-- Species Pie Chart -->
 
-          <!-- Indigenous Pie Chart -->
-          <div class="col-sm-3">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                Indigenous vs Alien Animals
-              </div>
-              <div class="chart-stage">
-                <div id="indig-pie-chart"></div>
-              </div>
-            </div>
-          </div>
-          <!-- Indigenous Pie Chart -->
+  <!-- Categories Pie Chart -->
+  <div class="col-sm-4 chart-wrapper">
+      <div class="chart-title">
+        Categories
+      </div>
+      <div class="chart-stage">
+        <div id="categories-pie-chart"></div>
+      </div>
+  </div>
+  <!-- Categories Pie Chart -->
 
-          <!-- Country Bar Chart -->
-          <div class="col-sm-12">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                Country Data
-              </div>
-              <div class="chart-stage">
-                <div id="time-chart"></div>
-              </div>
-            </div>
-          </div>
-          <!-- Country Bar Chart -->
+  <!-- Indigenous Pie Chart -->
+  <div class="col-sm-4 chart-wrapper">
+      <div class="chart-title">
+        Indigenous vs Alien Animals
+      </div>
+      <div class="chart-stage">
+        <div id="indig-pie-chart"></div>
+      </div>
+  </div>
+  <!-- Indigenous Pie Chart -->
+
+  <!-- Country Bar Chart -->
+  <div class="col-sm-12 chart-wrapper">
+      <div class="chart-title">
+        Country Data
+      </div>
+      <div class="chart-stage">
+        <div id="time-chart"></div>
+      </div>
+  </div>
+  <!-- Country Bar Chart -->
 
  
-          
 
-  <hr>
-
-  <p class="small text-muted"> Data viz &#9829; from Code Institute</p>
   <script src="{{ url_for ('static', filename='lib/js/jquery.min.js')}}"></script>
   <script src="{{ url_for ('static', filename='lib/js/bootstrap.min.js')}}"></script>
   <script src="{{ url_for ('static', filename='lib/js/crossfilter.js')}}"></script>

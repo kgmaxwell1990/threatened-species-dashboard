@@ -30,7 +30,7 @@ var endangeredSpecies = projectsJson;
        return d["Value"];
    });
 
-//       var updatedCategory = categDim.filter(function(d) {
+//       var updatedCategDim = categDim.filter(function(d) {
 //        if ('IUCN'=='VULNERABLE'||'IUCN'=='ENDANGERED'||'IUCN'=='CRITICAL')
 //        {return d["IUCN"];}
 //    });
