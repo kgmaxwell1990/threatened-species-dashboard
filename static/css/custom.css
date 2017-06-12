@@ -3,13 +3,25 @@
 }
 
 .chart-wrapper{
-    /*margin: 5px;*/
+    /*margin: 10px;*/
 }
 
+svg {
+    text-align: center;
+    margin: 0 auto;
+}
+
+#country-bar-chart .x.axis text {
+    text-anchor: end !important;
+    transform: rotate(-45deg);
+}
 .chart-title {
     text-align: center;
 }
 
+.dc-chart .pie-slice {
+    fill: black;
+}
 /*#number-projects-nd {
    font-size: 60px;
 }

@@ -33,7 +33,8 @@ def endangered_species():
         'IUCN': True,
         'Species': True,
         'Country': True, 
-        'Value': True
+        'Value': True,
+        'Indigenous': True
     }
  
     # Open a connection to MongoDB using a with statement such that the
