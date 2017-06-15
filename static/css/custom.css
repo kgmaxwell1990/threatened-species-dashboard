@@ -1,19 +1,41 @@
-.application {
-    background-color: green;
+p {
+    text-align: justify;
+    margin: 5px;
 }
 
-#threatened-animals {
-    background-image: href="{{ url_for ('static', filename='images/lynx.jpg')}}";
+#body_id {
+    background-image: url("/static/images/lynx.jpg");
+    background-size: cover;
 }
 
-.chart-wrapper{
-    /*margin: 10px;*/
+.piechart1 {
+    margin-left: 20px;
+    margin-right: 4px;
+}
+
+piechart2 {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.piechart3 {
+    margin-left: 4px;
+    margin-right: 20px;
 }
 
 svg {
     text-align: center;
     margin: 0 auto;
 }
+
+#starttour {
+    margin-left: 5px;
+    background-color: orange;
+
+}
+/*.chart-wrapper {
+    display: none;
+}*/
 
 #country-bar-chart .x.axis text {
     text-anchor: end !important;

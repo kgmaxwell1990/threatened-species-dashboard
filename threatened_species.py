@@ -17,6 +17,15 @@ def index():
     A Flask view to serve the main dashboard page.
     """
     return render_template("index.html")
+
+@app.route("/graphs")
+def graph():
+    return render_template("graphs.html")
+    
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
  
  
 @app.route("/endangeredSpecies/species")

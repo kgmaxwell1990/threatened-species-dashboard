@@ -70,14 +70,14 @@ var endangeredSpecies = projectsJson;
    var speciesPieChart = dc.pieChart("#species-pie-chart");
    var categoriesPieChart = dc.pieChart("#categories-pie-chart");
    var indigPieChart = dc.pieChart("#indig-pie-chart");
-   var countriesBarChart = dc.barChart("#country-bar-chart");
+   var countriesRowChart = dc.rowChart("#country-row-chart");
    
    
  
 
     speciesPieChart
-        .height(350)
-        .radius(100)
+        .height(300)
+        .radius(80)
         .transitionDuration(1500)
         .dimension(speciesDim)
         .group(numberOfThreatenedSpecies)
@@ -85,8 +85,8 @@ var endangeredSpecies = projectsJson;
 
     
     categoriesPieChart
-        .height(350)
-        .radius(100)
+        .height(300)
+        .radius(80)
         .transitionDuration(1500)
         .dimension(categDim)
         .group(numberOfCategories)
@@ -94,9 +94,9 @@ var endangeredSpecies = projectsJson;
         
     
     indigPieChart
-        .height(350)
-        .radius(100)
-        .innerRadius(40)
+        .height(300)
+        .radius(80)
+        // .innerRadius(20)
         .transitionDuration(1500)
         .dimension(indigDim)
         .group(numberOfIndigenousVsForeign)
@@ -105,18 +105,19 @@ var endangeredSpecies = projectsJson;
         // })
 
     
-    countriesBarChart
-       .width(1200)
-       .height(400)
-       .margins({top: 10, right: 50, bottom: 80, left: 50})
+    countriesRowChart
+       .width(400)
+       .height(1200)
+    //    .margins({top: 10, right: 50, bottom: 80, left: 50})
        .dimension(countryDim)
        .group(numberOfSpeciesPerCountry)
        .transitionDuration(500)
-       .x(d3.scale.ordinal())
-       .xUnits(dc.units.ordinal)
-       .elasticY(true)
-       .xAxisLabel("Country")
-       .yAxis().ticks(4);
+       .xAxis().ticks(4);
+    //    .x(d3.scale.ordinal())
+    //    .xUnits(dc.units.ordinal)
+    //    .elasticY(true)
+    //    .xAxisLabel("Country")
+    //    .yAxis().ticks(4);
     
 
  
