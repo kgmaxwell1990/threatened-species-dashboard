@@ -8,6 +8,22 @@ p {
     background-size: cover;
 }
 
+.intro {
+    position: relative;
+
+}
+.overlay {
+    position:absolute;
+    z-index:5;
+    top: 100px;
+    left: 200px;
+
+}
+
+#overlayimage {
+    width: 50%;
+}
+
 .piechart1 {
     margin-left: 20px;
     margin-right: 4px;
@@ -34,8 +50,14 @@ svg {
 
 }
 /*.chart-wrapper {
-    display: none;
+    background-color: grey;
 }*/
+
+.dc-chart g.row text {
+    fill: #333;
+}
+
+
 
 #country-bar-chart .x.axis text {
     text-anchor: end !important;

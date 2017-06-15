@@ -81,7 +81,7 @@ var endangeredSpecies = projectsJson;
         .transitionDuration(1500)
         .dimension(speciesDim)
         .group(numberOfThreatenedSpecies)
-        // .externalLabels(20)
+        .externalLabels(15)
 
     
     categoriesPieChart
