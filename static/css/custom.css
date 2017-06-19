@@ -12,10 +12,10 @@ p {
     background-size: cover;
 }
 
-.intro {
+/*.intro {
     position: relative;
 
-}
+}*/
 .overlay {
     position:absolute;
     z-index:5;
@@ -30,16 +30,16 @@ p {
 
 .piechart1 {
     margin-left: 20px;
-    margin-right: 4px;
+    margin-right: 20px;
 }
 
 piechart2 {
-    margin-left: 4px;
-    margin-right: 4px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .piechart3 {
-    margin-left: 4px;
+    margin-left: 20px;
     margin-right: 20px;
 }
 

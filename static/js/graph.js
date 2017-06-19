@@ -18,19 +18,43 @@ var endangeredSpecies = projectsJson;
    });
 
    var categDim = ndx.dimension(function(d) {
-       return d["IUCN"];
+       return parseStatus(d["IUCN"]);
    });
 
   var categFilterDim = ndx.dimension(function(d) {
-       return d["IUCN"];
+       return parseStatus(d["IUCN"]);
    });
+
+   function parseStatus(d) {
+      
+       if(d=="VULNERABLE_IND") {
+          d = "Vulnerable Indigenous";
+       }
+        else if(d=="ENDANGERED_IND") {
+          d = "Endangered Indigenous";
+        }
+        else if(d=="CRITICAL_IND") {
+          d = "Critical Indigenous";
+       }
+        else if(d=="VULNERABLE") {
+          d = "Vulnerable";
+       }
+        else if(d=="ENDANGERED") {
+          d = "Endangered";
+       }
+        else if(d=="CRITICAL") {
+          d = "Critical";
+       }
+       
+       return d;
+   }
 
    function multivalue_filter(values) {
        return function(v) {
            return values.indexOf(v) !== -1;
        };
    }
-   categFilterDim.filter(multivalue_filter(['CRITICAL', 'VULNERABLE', 'ENDANGERED', 'CRITICAL_IND', 'VULNERABLE_IND', 'ENDANGERED_IND']));
+   categFilterDim.filter(multivalue_filter(['Critical', 'Vulnerable', 'Endangered', 'Critical Indigenous', 'Vulnerable Indigenous', 'Endangered Indigenous']));
 
 
    var countryDim = ndx.dimension(function(d) {
@@ -50,6 +74,9 @@ var endangeredSpecies = projectsJson;
    var numberOfCategories = categDim.group().reduceSum(function(d) {
        return d["Value"];
    });
+
+   categFilterDim.filter(multivalue_filter(['Critical', 'Vulnerable', 'Endangered', 'Critical Indigenous', 'Vulnerable Indigenous', 'Endangered Indigenous']));
+
 
    var numberOfSpeciesPerCountry = countryDim.group().reduceSum(function(d) {
         console.log(d['IUCN'])
@@ -76,33 +103,41 @@ var endangeredSpecies = projectsJson;
  
 
     speciesPieChart
-        .height(300)
-        .radius(80)
+        .height(150)
+        .radius(document.getElementById('species-pie-chart').clientHeight * 0.3)
+        .width(document.getElementById('species-pie-chart').clientWidth)
         .transitionDuration(1500)
         .dimension(speciesDim)
+        .renderLabel(false)
         .group(numberOfThreatenedSpecies)
-        .externalLabels(15)
+        .legend(dc.legend().x(0).y(0).gap(5));
 
     
     categoriesPieChart
-        .height(300)
-        .radius(80)
+        .height(150)
+        .radius(document.getElementById('categories-pie-chart').clientHeight * 0.3)
+        .width(document.getElementById('categories-pie-chart').clientWidth)
         .transitionDuration(1500)
-        .dimension(categDim)
+        .dimension(categFilterDim)
+        // .renderLabel(false)
         .group(numberOfCategories)
         .externalLabels(20)
+        .legend(dc.legend().x(0).y(0).gap(5));
         
     
     indigPieChart
-        .height(300)
-        .radius(80)
+       .height(150)
+        .radius(document.getElementById('categories-pie-chart').clientHeight * 0.3)
+        .width(document.getElementById('categories-pie-chart').clientWidth)
         // .innerRadius(20)
         .transitionDuration(1500)
         .dimension(indigDim)
         .group(numberOfIndigenousVsForeign)
+        .renderLabel(false)
         // .label(function(d) {
         //     return Math.round((d.value / total) * 100) + '%';
         // })
+        .legend(dc.legend().x(0).y(0).gap(5));
 
     
     countriesRowChart
@@ -113,6 +148,7 @@ var endangeredSpecies = projectsJson;
        .group(numberOfSpeciesPerCountry)
        .transitionDuration(500)
        .xAxis().ticks(4);
+
     //    .x(d3.scale.ordinal())
     //    .xUnits(dc.units.ordinal)
     //    .elasticY(true)
