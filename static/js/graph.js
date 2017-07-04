@@ -12,7 +12,7 @@ var endangeredSpecies = projectsJson;
 
 
  
-   //Define Dimensions
+   // Dimensions
    var speciesDim = ndx.dimension(function(d) {
        return d["Species"]
    });
@@ -65,6 +65,10 @@ var endangeredSpecies = projectsJson;
        return d["Indigenous"];
    });
 
+   var totalSpeciesDim = ndx.dimension(function (d) {
+       return d["IUCN"];
+   });
+
 
    //Calculate metrics
    var numberOfThreatenedSpecies = speciesDim.group().reduceSum(function(d) {
@@ -87,9 +91,10 @@ var endangeredSpecies = projectsJson;
        return d["Value"];
    });
 
-
-
-
+   var all = ndx.groupAll();
+   var totalSpecies = ndx.groupAll().reduceSum(function (d) {
+       return d["Value"];
+   });
 
    
  
@@ -98,6 +103,8 @@ var endangeredSpecies = projectsJson;
    var categoriesPieChart = dc.pieChart("#categories-pie-chart");
    var indigPieChart = dc.pieChart("#indig-pie-chart");
    var countriesRowChart = dc.rowChart("#country-row-chart");
+   var numberSpeciesND = dc.numberDisplay("#number-species-nd");
+   var numberThreatenedND = dc.numberDisplay("#number-threatened-nd");
    
    
  
@@ -121,7 +128,7 @@ var endangeredSpecies = projectsJson;
         .dimension(categFilterDim)
         // .renderLabel(false)
         .group(numberOfCategories)
-        // .externalLabels(5)
+        .externalLabels(5)
         // .legend(dc.legend().x(0).y(0).gap(5));
         
     
@@ -155,6 +162,19 @@ var endangeredSpecies = projectsJson;
     //    .xAxisLabel("Country")
     //    .yAxis().ticks(4);
     
+   numberSpeciesND
+       .formatNumber(d3.format("d"))
+       .valueAccessor(function (d) {
+           return d;
+       })
+       .group(all);
+
+   numberThreatenedND
+       .formatNumber(d3.format("d"))
+       .valueAccessor(function (d) {
+           return d;
+       })
+       .group(all);
 
  
    dc.renderAll();

@@ -20,7 +20,7 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="/">Threatened Animals Around The World</a>
     </div>
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav navbar-right">
       <li><a href="/">Home</a></li>
       <li><a href="graphs">Graphs</a></li>
       <li><a href="contact">Contact</a></li>
@@ -39,38 +39,35 @@
         <button id="starttour">Start Tour</button>
         <button><a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a></button>
 
-
-    <div class="chart-title">
-        <h4>Most Endangered Animals</h4>
-    </div>   
-          <ul>
-            <li><a href="https://en.wikipedia.org/wiki/Northern_white_rhinoceros" target="_blank"> White Rhinoceros</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Baiji" target="_blank"> Baiji</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Mexican_wolf" target="_blank"> Mexican Wolf</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Spider_monkey" target="_blank"> Brown Spider Monkey</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Siamese_crocodile" target="_blank"> Siamese Crocodile</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Javan_rhinoceros" target="_blank"> Javan Rhinoceros</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Spix%27s_macaw" target="_blank"> Spix's Macaw</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Axolotl" target="_blank"> Axolotl</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Iberian_lynx" target="_blank"> Iberian Lynx</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Arakan_forest_turtle" target="_blank"> Arakan Forest Turtle</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Hawaiian_crow" target="_blank"> Hawaiian Crow</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Kakapo" target="_blank"> Kakapo</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Brazilian_merganser" target="_blank"> Brazilian Merganser</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Sumatran_rhinoceros" target="_blank"> Sumatran Rhinoceros</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Vaquita" target="_blank"> Vaquita</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Amur_leopard" target="_blank"> Amur Leopard</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/California_condor" target="_blank"> California Condor</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Philippine_eagle" target="_blank"> Philippine Eagle</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Mediterranean_monk_seal" target="_blank"> Mediterranean Monk Seal</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Catarina_pupfish" target="_blank"> Catarina Pupfish</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Bactrian_camel" target="_blank"> Bactrian Camel</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Island_fox" target="_blank"> Island Fox</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Mountain_gorilla" target="_blank"> Mountain Gorilla</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Hawaiian_monk_seal" target="_blank"> Hawaiian Monk Seal</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Baiji" target="_blank"> Addax</a></li>
-          </ul>
     </div>
+    <div class="chart-title">
+          <h4>Total Number of Known Species</h4>
+    </div>
+    <div class="chart-stage" style="background: #33CC99;
+      position: relative;
+      font-size: 29px;
+      color: white;
+      vertical-align: middle;
+      text-align: center;
+      padding-top: 12px;
+      padding-bottom: 0px;">
+      <div id="number-species-nd"></div>
+    </div>
+    <div class="chart-title">
+          <h4>Total Number of Threatened Species</h4>
+    </div>
+    <div class="chart-stage" style="background: #33CC99;
+      position: relative;
+      font-size: 29px;
+      color: white;
+      vertical-align: middle;
+      text-align: center;
+      padding-top: 12px;
+      padding-bottom: 0px;">
+      <div id="number-threatened-nd"></div>
+    </div>
+
+
     <div class="chart-title">
         <h4>Source</h4>
     </div> 
@@ -124,6 +121,29 @@
   </div>
   <!-- Country Row Chart -->
 
+  <!-- Total Known Species -->
+    <div class="col-sm-2">
+      <div class="chart-wrapper">
+        <div class="chart-title">
+          Total Number of Known Species
+        </div>
+        <div class="chart-stage" style="background: #33CC99;
+          position: relative;
+          font-size: 29px;
+          color: white;
+          vertical-align: middle;
+          text-align: center;
+          padding-top: 12px;
+          padding-bottom: 0px;">
+          <div id="number-species-nd"></div>
+        </div>
+      </div>
+    </div>
+  <!-- Total Known Species -->
+
+  <!-- Total Known Threatened Species -->
+
+  <!-- Total Known Threatened Species -->
   
   </div>
  

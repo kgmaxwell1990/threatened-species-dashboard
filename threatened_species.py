@@ -6,9 +6,13 @@ import os
  
 app = Flask(__name__)
  
-MONGODB_URI = os.environ.get('MONGODB_URI')
-DBS_NAME = os.environ.get('MONGO_DB_NAME', 'endangeredspecies')
+MONGODB_URI = 'mongodb://heroku_1cxrtrp8:cd70hc9kcckhahnsgvelevsrj4@ds149132.mlab.com:49132/heroku_1cxrtrp8'
+DBS_NAME = 'heroku_1cxrtrp8'
+# MONGODB_URI = os.environ.get('MONGODB_URI')
+# DBS_NAME = os.environ.get('MONGO_DB_NAME', 'endangeredspecies')
 COLLECTION_NAME = os.environ.get('MONGO_COLLECTION_NAME', 'species')
+
+
 
 # MONGODB_HOST = 'localhost'
 # MONGODB_PORT = 27017
