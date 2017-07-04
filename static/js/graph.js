@@ -121,14 +121,14 @@ var endangeredSpecies = projectsJson;
         .dimension(categFilterDim)
         // .renderLabel(false)
         .group(numberOfCategories)
-        .externalLabels(20)
-        .legend(dc.legend().x(0).y(0).gap(5));
+        // .externalLabels(5)
+        // .legend(dc.legend().x(0).y(0).gap(5));
         
     
     indigPieChart
-       .height(150)
-        .radius(document.getElementById('categories-pie-chart').clientHeight * 0.3)
-        .width(document.getElementById('categories-pie-chart').clientWidth)
+        .height(150)
+        .radius(document.getElementById('indig-pie-chart').clientHeight * 0.3)
+        .width(document.getElementById('indig-pie-chart').clientWidth)
         // .innerRadius(20)
         .transitionDuration(1500)
         .dimension(indigDim)
