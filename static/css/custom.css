@@ -12,21 +12,6 @@ p {
     background-size: cover;
 }
 
-/*.intro {
-    position: relative;
-
-}*/
-.overlay {
-    position:absolute;
-    z-index:5;
-    top: 100px;
-    left: 200px;
-
-}
-
-#overlayimage {
-    width: 50%;
-}
 
 .piechart1 {
     margin-left: 20px;
@@ -53,15 +38,10 @@ svg {
     background-color: orange;
 
 }
-/*.chart-wrapper {
-    background-color: grey;
-}*/
 
 .dc-chart g.row text {
     fill: #333;
 }
-
-
 
 #country-bar-chart .x.axis text {
     text-anchor: end !important;
@@ -74,60 +54,26 @@ svg {
 .dc-chart .pie-slice {
     fill: black;
 }
-/*#number-projects-nd {
-   font-size: 60px;
-}
  
-#total-donations-nd {
-   font-size: 60px;
-}*/
- 
- 
- 
- 
-/*.dc-chart g.row text {
-   fill: black;
-   font-size: 12px;
-}*/
- 
-/*#total-projects {
-   background: #33CC99;
-   width: 200px;
-   position: relative;
-   height: 60px;
-   font-size: 29px;
-   color: white;
-   vertical-align: middle;
-   text-align: center;
-   padding-top: 12px;
-   padding-bottom: 0px;
-}
- 
-#net-donations {
-   background: #33CC99;
-   width: 200px;
-   position: relative;
-   height: 60px;
-   font-size: 29px;
-   color: white;
-   vertical-align: middle;
-   text-align: center;
-   padding-top: 12px;
-   padding-bottom: 0px;
-}
- 
- 
+
+.chart-stage {
+      position: relative;
+      font-size: 29px;
+      vertical-align: middle;
+      text-align: center;
+      padding-top: 12px;
+      padding-bottom: 0px;
+ }
 .dc-select-menu {
-   background: #33CC99;
+   background: gray;
    width: 80%;
    border: none;
    position: relative;
    height: 31px;
    font-size: 15px;
-   color: white;
    vertical-align: middle;
    text-align: center;
    padding-top: 4px;
    padding-bottom: 0px;
  
-}*/
+}

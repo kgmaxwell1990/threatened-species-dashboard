@@ -20,14 +20,14 @@ COLLECTION_NAME = os.environ.get('MONGO_COLLECTION_NAME', 'species')
 # COLLECTION_NAME = 'species'
  
  
-@app.route("/")
-def index():
-    """
-    A Flask view to serve the main dashboard page.
-    """
-    return render_template("index.html")
+# @app.route("/")
+# def index():
+#     """
+#     A Flask view to serve the main dashboard page.
+#     """
+#     return render_template("index.html")
 
-@app.route("/graphs")
+@app.route("/")
 def graph():
     return render_template("graphs.html")
     
