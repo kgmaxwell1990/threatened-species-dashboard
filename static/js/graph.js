@@ -1,6 +1,7 @@
 queue()
    .defer(d3.json, "/endangeredSpecies/species")
    .await(makeGraphs);
+
  
 function makeGraphs(error, projectsJson) {
  
@@ -10,31 +11,70 @@ var endangeredSpecies = projectsJson;
    var ndx = crossfilter(endangeredSpecies);
 
 
+//-----------------------------------------------------------------------------------------------------------
 
- 
-   // Dimensions
+   // Number Display for total Species
+   // Dim
+   var totalSpeciesDim = ndx.dimension(function (d) {
+       return d["IUCN"];
+   });
+   // Measure
+   var all = ndx.groupAll();
+   var totalSpecies = ndx.groupAll().reduceSum(function (d) {
+       return d["Value"];
+   });
+
+//-----------------------------------------------------------------------------------------------------------
+
+
+   // Number Display for total threatened species
+   // Dim
+
+
+   // Measure
+
+
+//-----------------------------------------------------------------------------------------------------------
+
+   // Drop down box for selecting country 
+   // Dim
+   var countryDim = ndx.dimension(function(d) {
+       return d["Country"];
+   });
+   // Measure
+   var countryGroup = countryDim.group()
+
+
+//-----------------------------------------------------------------------------------------------------------
+
+   // Pie - Number of Threatened Animals grouped by species
+   // Dim
    var speciesDim = ndx.dimension(function(d) {
        return d["Species"]
    });
-
-   var categDim = ndx.dimension(function(d) {
-       return parseStatus(d["IUCN"]);
+   // Measure
+   var numberOfThreatenedSpecies = speciesDim.group().reduceSum(function(d) {
+       return d["Value"];
    });
 
-  var categFilterDim = ndx.dimension(function(d) {
+//-----------------------------------------------------------------------------------------------------------
+
+   // Pie - Categories
+   // Dim
+   var categDim = ndx.dimension(function(d) {
        return parseStatus(d["IUCN"]);
    });
 
    function parseStatus(d) {
       
        if(d=="VULNERABLE_IND") {
-          d = "Vulnerable Indigenous";
+          d = "Vulnerable";
        }
         else if(d=="ENDANGERED_IND") {
-          d = "Endangered Indigenous";
+          d = "Endangered";
         }
         else if(d=="CRITICAL_IND") {
-          d = "Critical Indigenous";
+          d = "Critical";
        }
         else if(d=="VULNERABLE") {
           d = "Vulnerable";
@@ -49,54 +89,65 @@ var endangeredSpecies = projectsJson;
        return d;
    }
 
-   function multivalue_filter(values) {
-       return function(v) {
-           return values.indexOf(v) !== -1;
-       };
-   }
-   categFilterDim.filter(multivalue_filter(['Critical', 'Vulnerable', 'Endangered', 'Critical Indigenous', 'Vulnerable Indigenous', 'Endangered Indigenous']));
+//    function multivalue_filter(values) {
+//        return function(v) {
+//            return values.indexOf(v) !== -1;
+//        };
+//    }
 
-
-   var countryDim = ndx.dimension(function(d) {
-       return d["Country"];
-   });
-
-   var indigDim = ndx.dimension(function(d) {
-       return d["Indigenous"];
-   });
-
-   var totalSpeciesDim = ndx.dimension(function (d) {
-       return d["IUCN"];
-   });
-
-
-   //Calculate metrics
-   var numberOfThreatenedSpecies = speciesDim.group().reduceSum(function(d) {
-       return d["Value"];
-   });
-
+   // Measure
    var numberOfCategories = categDim.group().reduceSum(function(d) {
        return d["Value"];
    });
 
-   categFilterDim.filter(multivalue_filter(['Critical', 'Vulnerable', 'Endangered', 'Critical Indigenous', 'Vulnerable Indigenous', 'Endangered Indigenous']));
 
+//-----------------------------------------------------------------------------------------------------------
+   function parseIndig(d) {
+      
+       if(d=="VULNERABLE_IND") {
+          d = "Indigenous";
+       }
+        else if(d=="ENDANGERED_IND") {
+          d = "Indigenous";
+        }
+        else if(d=="CRITICAL_IND") {
+          d = "Indigenous";
+       }
+        else if(d=="VULNERABLE") {
+          d = "Alien";
+       }
+        else if(d=="ENDANGERED") {
+          d = "Alien";
+       }
+        else if(d=="CRITICAL") {
+          d = "Alien";
+       }
+       
+       return d;
+   }
 
-   var numberOfSpeciesPerCountry = countryDim.group().reduceSum(function(d) {
-        console.log(d['IUCN'])
-        return d['Value'];
+   // Pie - Indig vs Alien
+   // Dim
+   var indigDim = ndx.dimension(function(d) {
+       return parseIndig(d["IUCN"]);
    });
 
+   // Measure
    var numberOfIndigenousVsForeign = indigDim.group().reduceSum(function(d) {
        return d["Value"];
    });
 
-   var all = ndx.groupAll();
-   var totalSpecies = ndx.groupAll().reduceSum(function (d) {
-       return d["Value"];
+//-----------------------------------------------------------------------------------------------------------
+
+   // Row Chart - Countries
+   // Dim 
+   // countryDim from above
+   // Measure
+   var numberOfSpeciesPerCountry = countryDim.group().reduceSum(function(d) {
+        return d['Value'];
    });
 
-   var countryGroup = countryDim.group()
+//-----------------------------------------------------------------------------------------------------------
 
    
  
@@ -130,7 +181,7 @@ var endangeredSpecies = projectsJson;
         .radius(document.getElementById('categories-pie-chart').clientHeight * 0.3)
         .width(document.getElementById('categories-pie-chart').clientWidth)
         .transitionDuration(1500)
-        .dimension(categFilterDim)
+        .dimension(categDim)
         .renderLabel(false)
         .group(numberOfCategories)
         .externalLabels(5)
@@ -145,7 +196,7 @@ var endangeredSpecies = projectsJson;
         .transitionDuration(1500)
         .dimension(indigDim)
         .group(numberOfIndigenousVsForeign)
-        // .renderLabel(false)
+        .renderLabel(true)
         // .label(function(d) {
         //     return Math.round((d.value / total) * 100) + '%';
         // })
@@ -175,12 +226,15 @@ var endangeredSpecies = projectsJson;
        .group(all);
 
    numberThreatenedND
-       .formatNumber(d3.format("d"))
+       .formatNumber(d3.format(".3s"))
        .valueAccessor(function (d) {
            return d;
        })
-       .group(all);
+       .group(totalSpecies);
 
  
    dc.renderAll();
+
+
+
 }

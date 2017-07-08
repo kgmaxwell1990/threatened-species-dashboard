@@ -3,6 +3,7 @@ p {
     margin: 5px;
 }
 
+
 #body_id {
     background: url("/static/images/lynx.jpg")no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -64,6 +65,11 @@ svg {
       padding-top: 12px;
       padding-bottom: 0px;
  }
+
+.most-endangered > ul > li {
+    text-align: justify;
+    font-size: 15px;
+}
 .dc-select-menu {
    background: gray;
    width: 80%;
