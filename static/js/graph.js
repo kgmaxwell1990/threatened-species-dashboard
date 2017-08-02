@@ -155,7 +155,8 @@ var endangeredSpecies = projectsJson;
    var speciesPieChart = dc.pieChart("#species-pie-chart");
    var categoriesPieChart = dc.pieChart("#categories-pie-chart");
    var indigPieChart = dc.pieChart("#indig-pie-chart");
-   var countriesRowChart = dc.rowChart("#country-row-chart");
+//    var countriesRowChart = dc.rowChart("#country-row-chart");
+   var countriesBarChart = dc.barChart("#country-bar-chart");
    var numberSpeciesND = dc.numberDisplay("#number-species-nd");
    var numberThreatenedND = dc.numberDisplay("#number-threatened-nd");
    
@@ -182,10 +183,10 @@ var endangeredSpecies = projectsJson;
         .width(document.getElementById('categories-pie-chart').clientWidth)
         .transitionDuration(1500)
         .dimension(categDim)
-        .renderLabel(false)
+        .renderLabel(true)
         .group(numberOfCategories)
-        .externalLabels(5)
-        .legend(dc.legend().x(0).y(0).gap(5));
+        // .externalLabels(5)
+        // .legend(dc.legend().x(0).y(0).gap(5));
         
     
     indigPieChart
@@ -200,23 +201,37 @@ var endangeredSpecies = projectsJson;
         // .label(function(d) {
         //     return Math.round((d.value / total) * 100) + '%';
         // })
-        .legend(dc.legend().x(0).y(0).gap(5));
+        // .legend(dc.legend().x(0).y(0).gap(5));
 
     
-    countriesRowChart
-       .width(400)
-       .height(1200)
+    // countriesRowChart
+    //    .width(400)
+    //    .height(1200)
     //    .margins({top: 10, right: 50, bottom: 80, left: 50})
-       .dimension(countryDim)
-       .group(numberOfSpeciesPerCountry)
-       .transitionDuration(500)
-       .xAxis().ticks(4);
-
+    //    .dimension(countryDim)
+    //    .group(numberOfSpeciesPerCountry)
+    //    .transitionDuration(500)
+    //    .xAxis().ticks(4);
     //    .x(d3.scale.ordinal())
     //    .xUnits(dc.units.ordinal)
     //    .elasticY(true)
     //    .xAxisLabel("Country")
     //    .yAxis().ticks(4);
+
+
+    countriesBarChart
+        .width(1200)
+        .height(400)
+        .margins({top: 10, right: 50, bottom: 80, left: 50})
+        .dimension(countryDim)
+        .group(numberOfSpeciesPerCountry)
+        .transitionDuration(500)
+        .x(d3.scale.ordinal())
+        .xUnits(dc.units.ordinal)
+        .elasticY(true)
+        .xAxisLabel("Country")
+        .yAxis().ticks(4);
+
     
    numberSpeciesND
        .formatNumber(d3.format("d"))

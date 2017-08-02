@@ -7,7 +7,9 @@
     filename='lib/css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{ url_for ('static',
     filename='lib/css/keen-dashboards.css')}}">
+  <link href="https://fonts.googleapis.com/css?family=Play|Raleway" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/dc.css')}}">
+  <link rel="stylesheet" href="{{url_for ('static', filename='lib/css/introjs.css')}}" />
   <link rel="stylesheet" href="{{ url_for ('static', filename='css/custom.css')}}">
   <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
 </head>
@@ -20,11 +22,6 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="/">Threatened Animals Around The World</a>
     </div>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="/">Graphs</a></li>
-      <li><a href="contact">Contact</a></li>
-
-    </ul>
   </div>
 </nav>
   
@@ -38,36 +35,26 @@
         <h4>Navigation</h4>
     </div>
     <div class="chart-info">
-        <button id="starttour">Start Tour</button>
-        <button><a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a></button>
+        <button id="btn2" class=" btn btn-success intro_button pulse" type="button" autofocus onclick="javascript:introJs().start();">Start Tour!</button>
+        <button class="btn btn-warning"><a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a></button>
 
-    </div>
-
-    <div class="chart-title">
-      <h4>Choose Country</h4>
-    </div>
-    <div class="chart-stage">
-      <div id="menu-select"></div>
-    </div>
-
-    <div class="chart-title">
-          <h4>Total Number of Known Species</h4>
-    </div>
-    <div class="chart-stage">
-      <div id="number-species-nd"></div>
     </div>
 
     <div class="chart-title">
           <h4>Total Number of Threatened Species</h4>
     </div>
-    <div class="chart-stage">
+    <div class="chart-stage" data-step="5" 
+          data-intro="This figure shows the total number of threatened species, filtered down with your selectors" 
+          style="font-weight: normal; text-align:left;" data-position="right">
       <div id="number-threatened-nd"></div>
     </div>
 
     <div class="chart-title">
       <h4> Most Endangered Animals</h4>
     </div>
-    <div class="chart-stage most-endangered">
+    <div class="chart-stage most-endangered" data-step="6" 
+          data-intro="This is a list of some of the most endangered species - click to get more info on them" 
+          style="font-weight: normal; text-align:left;" data-position="right">
         <ul>
             <li><a href="https://en.wikipedia.org/wiki/Northern_white_rhinoceros" target="_blank"> White Rhinoceros</a></li>
             <li><a href="https://en.wikipedia.org/wiki/Baiji" target="_blank"> Baiji</a></li>
@@ -106,7 +93,10 @@
 
 
   <!-- Species Pie Chart -->
-  <div class="col-sm-2 chart-wrapper piechart1">
+  <div class="col-sm-3 chart-wrapper piechart1"  data-step="1" 
+      data-intro="<p>The tour starts here!</br>Choose which group of animal
+        you are most interested in</p>" 
+      style="font-weight: normal; text-align:left;" data-position="right">
       <div class="chart-title">
         <h4>Threatened Animals</h4>
       </div>
@@ -117,7 +107,9 @@
   <!-- Species Pie Chart -->
 
   <!-- Categories Pie Chart -->
-  <div class="col-sm-2 chart-wrapper piechart2">
+  <div class="col-sm-3 chart-wrapper piechart2"  data-step="3" 
+          data-intro="Now choose a category you are most interested in" 
+          style="font-weight: normal; text-align:left;" data-position="right">
       <div class="chart-title">
         <h4>Categories</h4>
       </div>
@@ -128,7 +120,9 @@
   <!-- Categories Pie Chart -->
 
   <!-- Indigenous Pie Chart -->
-  <div class="col-sm-2 chart-wrapper piechart3">
+  <div class="col-sm-3 chart-wrapper piechart3"   data-step="4" 
+          data-intro="Choose if you want to look at the figures for the Indigenous or the Alien population" 
+          style="font-weight: normal; text-align:left;" data-position="right">
       <div class="chart-title">
         <h4>Indigenous vs Alien</h4>
       </div>
@@ -140,15 +134,28 @@
 
 
   <!-- Country Row Chart -->
-  <div class="col-sm-3 chart-wrapper">
+  <!-- <div class="col-sm-3 chart-wrapper">
       <div class="chart-title">
         <h4>Number of Threatened animals per Country</h4>
       </div>
       <div class="chart-stage">
         <div id="country-row-chart"></div>
       </div>
-  </div>
+  </div> -->
   <!-- Country Row Chart -->
+
+  <!-- Country Bar Chart -->
+     <div class="col-sm-9 chart-wrapper rowchart"  data-step="2" 
+          data-intro="Now choose which Country or Countries you are interested in looking at for that animal" 
+          style="font-weight: normal; text-align:left;" data-position="right">
+         <div class="chart-title">
+           <h4>Country Data</h4>
+         </div>
+         <div class="chart-stage">
+           <div id="country-bar-chart"></div>
+         </div>
+     </div>
+  <!-- Country Bar Chart -->
 
   
   </div>
@@ -161,6 +168,7 @@
   <script src="{{ url_for ('static', filename='lib/js/dc.js')}}"></script>
   <script src="{{ url_for ('static', filename='lib/js/queue.js')}}"></script>
   <script src="{{ url_for ('static', filename='lib/js/keen.min.js')}}"></script>
+  <script src="{{url_for ('static', filename='lib/js/intro.js')}}" type="text/javascript"></script>
   <script src="{{ url_for ('static', filename='js/graph.js')}}"></script>
   <script src="{{ url_for ('static', filename='js/script.js')}}"></script>
 
