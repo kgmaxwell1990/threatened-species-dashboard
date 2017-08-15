@@ -2,7 +2,7 @@
 
 ## Live Demo
 
-Follow this link to view deployed version of the web app www.katie-dev-species-dash.herokuapp.com
+Follow this link to view deployed version of the web app https://katie-dev-species-dash.herokuapp.com/
 
 ## Installation
 
