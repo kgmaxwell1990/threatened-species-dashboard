@@ -139,7 +139,7 @@ var endangeredSpecies = projectsJson;
 
 //-----------------------------------------------------------------------------------------------------------
 
-   // Row Chart - Countries
+   // Bar Chart - Countries
    // Dim 
    // countryDim from above
    // Measure
@@ -231,6 +231,16 @@ var endangeredSpecies = projectsJson;
         .elasticY(true)
         .xAxisLabel("Country")
         .yAxis().ticks(4);
+    
+    d3.select("div#country-bar-chart")
+        .append("div")
+        .classed("svg-container", true) //container class to make it responsive
+        .append("svg")
+        //responsive SVG needs these 2 attributes and no width and height attr
+        .attr("preserveAspectRatio", "xMinYMin meet")
+        .attr("viewBox", "0 0 600 400")
+        //class to make it responsive
+        .classed("svg-content-responsive", true); 
 
     
    numberSpeciesND
