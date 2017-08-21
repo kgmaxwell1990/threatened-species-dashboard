@@ -24,14 +24,6 @@ var endangeredSpecies = projectsJson;
        return d["Value"];
    });
 
-//-----------------------------------------------------------------------------------------------------------
-
-
-   // Number Display for total threatened species
-   // Dim
-
-
-   // Measure
 
 
 //-----------------------------------------------------------------------------------------------------------
@@ -88,12 +80,6 @@ var endangeredSpecies = projectsJson;
        
        return d;
    }
-
-//    function multivalue_filter(values) {
-//        return function(v) {
-//            return values.indexOf(v) !== -1;
-//        };
-//    }
 
    // Measure
    var numberOfCategories = categDim.group().reduceSum(function(d) {
@@ -155,7 +141,6 @@ var endangeredSpecies = projectsJson;
    var speciesPieChart = dc.pieChart("#species-pie-chart");
    var categoriesPieChart = dc.pieChart("#categories-pie-chart");
    var indigPieChart = dc.pieChart("#indig-pie-chart");
-//    var countriesRowChart = dc.rowChart("#country-row-chart");
    var countriesBarChart = dc.barChart("#country-bar-chart");
    var numberSpeciesND = dc.numberDisplay("#number-species-nd");
    var numberThreatenedND = dc.numberDisplay("#number-threatened-nd");
@@ -167,7 +152,7 @@ var endangeredSpecies = projectsJson;
 
 
     speciesPieChart
-        .height(150)
+        .height(200)
         .radius(document.getElementById('species-pie-chart').clientHeight * 0.3)
         .width(document.getElementById('species-pie-chart').clientWidth)
         .transitionDuration(1500)
@@ -178,45 +163,24 @@ var endangeredSpecies = projectsJson;
 
     
     categoriesPieChart
-        .height(150)
+        .height(200)
         .radius(document.getElementById('categories-pie-chart').clientHeight * 0.3)
         .width(document.getElementById('categories-pie-chart').clientWidth)
         .transitionDuration(1500)
         .dimension(categDim)
         .renderLabel(true)
         .group(numberOfCategories)
-        // .externalLabels(5)
-        // .legend(dc.legend().x(0).y(0).gap(5));
         
     
     indigPieChart
-        .height(150)
+        .height(200)
         .radius(document.getElementById('indig-pie-chart').clientHeight * 0.3)
         .width(document.getElementById('indig-pie-chart').clientWidth)
-        // .innerRadius(20)
         .transitionDuration(1500)
         .dimension(indigDim)
         .group(numberOfIndigenousVsForeign)
         .renderLabel(true)
-        // .label(function(d) {
-        //     return Math.round((d.value / total) * 100) + '%';
-        // })
-        // .legend(dc.legend().x(0).y(0).gap(5));
 
-    
-    // countriesRowChart
-    //    .width(400)
-    //    .height(1200)
-    //    .margins({top: 10, right: 50, bottom: 80, left: 50})
-    //    .dimension(countryDim)
-    //    .group(numberOfSpeciesPerCountry)
-    //    .transitionDuration(500)
-    //    .xAxis().ticks(4);
-    //    .x(d3.scale.ordinal())
-    //    .xUnits(dc.units.ordinal)
-    //    .elasticY(true)
-    //    .xAxisLabel("Country")
-    //    .yAxis().ticks(4);
 
 
     countriesBarChart
@@ -230,17 +194,7 @@ var endangeredSpecies = projectsJson;
         .xUnits(dc.units.ordinal)
         .elasticY(true)
         .xAxisLabel("Country")
-        .yAxis().ticks(4);
     
-    d3.select("div#country-bar-chart")
-        .append("div")
-        .classed("svg-container", true) //container class to make it responsive
-        .append("svg")
-        //responsive SVG needs these 2 attributes and no width and height attr
-        .attr("preserveAspectRatio", "xMinYMin meet")
-        .attr("viewBox", "0 0 600 400")
-        //class to make it responsive
-        .classed("svg-content-responsive", true); 
 
     
    numberSpeciesND

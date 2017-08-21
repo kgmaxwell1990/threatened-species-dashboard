@@ -1,3 +1,5 @@
+
+
 p {
     text-align: justify;
     margin: 5px;
@@ -10,11 +12,17 @@ a {
     text-decoration: none;
 }
 
+h1,
 h4 {
     color: white;
     font-weight: 900;
     font-size: 25px;
     font-family: 'Play', sans-serif;
+}
+
+h1 {
+    font-size: 40px;
+    text-align: center;
 }
 
 
@@ -25,25 +33,11 @@ h4 {
     background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-
+    padding-top: 100px;
 }
 
 .chart-wrapper {
     background: rgba(0, 0, 0, 0.3);
-}
-
-.svg-container {
-    display: inline-block;
-    position: relative;
-    width: 100%;
-    vertical-align: top;
-    overflow: scroll;
-}
-.svg-content-responsive {
-    display: inline-block;
-    position: absolute;
-    top: 10px;
-    left: 0;
 }
 
 svg {
@@ -57,8 +51,16 @@ svg {
 
 }
 
+.white {
+    color: white;
+}
+
 .dc-chart g.row text {
     fill: #333;
+}
+
+#country-bar-chart {
+    width: 100%;
 }
 
 #country-bar-chart .x.axis text {
@@ -71,6 +73,10 @@ svg {
 
 .dc-chart .pie-slice {
     fill: black;
+}
+
+#number-threatened-nd {
+    margin-left: 40%;
 }
  
 
