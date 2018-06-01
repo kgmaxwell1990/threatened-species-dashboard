@@ -36,8 +36,22 @@ h1 {
     padding-top: 100px;
 }
 
+.chart-wrapper-outer {
+    padding: 0 10px;
+}
+
 .chart-wrapper {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3), 0 3px 10px 0 rgba(0, 0, 0, 0.3);
+    border: none;
+    border-radius: 0;
+}
+
+#country-bar-chart > svg > g > g.axis.x > g > text,
+#country-bar-chart > svg > g > g.axis.y > g > text,
+#species-pie-chart > svg > g.dc-legend > g> text,
+#country-bar-chart > svg > g > text {
+    fill: white;
 }
 
 svg {

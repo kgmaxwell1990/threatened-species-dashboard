@@ -20,9 +20,9 @@ var endangeredSpecies = projectsJson;
    });
    // Measure
    var all = ndx.groupAll();
-   var totalSpecies = ndx.groupAll().reduceSum(function (d) {
-       return d["Value"];
-   });
+//    var totalSpecies = ndx.groupAll().reduceSum(function (d) {
+//        return d["Value"];
+//    });
 
 
 
@@ -85,7 +85,6 @@ var endangeredSpecies = projectsJson;
    var numberOfCategories = categDim.group().reduceSum(function(d) {
        return d["Value"];
    });
-
 
 //-----------------------------------------------------------------------------------------------------------
    function parseIndig(d) {
@@ -204,12 +203,12 @@ var endangeredSpecies = projectsJson;
        })
        .group(all);
 
-   numberThreatenedND
-       .formatNumber(d3.format(".3s"))
-       .valueAccessor(function (d) {
-           return d;
-       })
-       .group(totalSpecies);
+//    numberThreatenedND
+//        .formatNumber(d3.format(".3s"))
+//        .valueAccessor(function (d) {
+//            return d;
+//        })
+//        .group(totalSpecies);
 
  
    dc.renderAll();
@@ -217,3 +216,8 @@ var endangeredSpecies = projectsJson;
 
 
 }
+
+
+// mongodb://<dbuser>:<dbpassword>@ds249005.mlab.com:49005/gender_academia
+
+// mongoimport -h ds249005.mlab.com:49005 -d gender_academia -c academia -u root -p password --file Salaries.csv --type csv --headerline
